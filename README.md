@@ -3,7 +3,13 @@
 
 ## Prerequisites
 
-* gpg: `brew install gpg`
+* GPG: `brew install gnupg`
+
+and
+
+```sh
+export GPG_TTY=$(tty)
+```
 
 ## Problem
 
@@ -47,7 +53,7 @@ Passed! 👍
 * Secrets are encrypted with `gpg` and they can be decrypted with
 
     ```sh
-    gpg --passphrase "$GPG_PASSPHRASE" < my-secret.txt.enc -o my-secret.txt
+    gpg --batch --yes --passphrase "$GPG_PASSPHRASE" < my-secret.txt.enc -o my-secret.txt
     ```
 
 * You have two utility scripts under `tools` directory:
